@@ -226,7 +226,7 @@ class Jeu:
         self.grille = Grille(LONGUEUR, LARGEUR)
         
         pyxel.init(LONGUEUR*CASE, LARGEUR*CASE, title="Démineur")
-        pyxel.mouse(not MOBILE) # affiche la souris si la partie est joué sur un PC: supprimer pour un mode hardcore!
+        pyxel.mouse(not MOBILE) # affiche la souris si la partie est joué sur un PC
         pyxel.load("my_resource.pyxres")
         self.termine = False # vaut True lorque la partie est terminée
         
@@ -244,6 +244,12 @@ class Jeu:
             elif a == 2:
                 self.termine = True
                 print("gagné") # à modifier pour gérer la victoire dans l'application flask
+        else:
+            if pyxel.btnp(pyxel.KEY_SPACE):
+                self.termine=False
+                self.grille = Grille(LONGUEUR, LARGEUR)
+
+                
         
         
 
